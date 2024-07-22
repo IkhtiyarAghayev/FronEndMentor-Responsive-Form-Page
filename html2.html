@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Form</title>
+    <style>
+        .error-message {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="myForm">
+        <fieldset>
+            <legend>Select an option:</legend>
+            <div>
+                <input type="radio" id="option1" name="option" value="option1">
+                <label for="option1">Option 1</label>
+            </div>
+            <div>
+                <input type="radio" id="option2" name="option" value="option2">
+                <label for="option2">Option 2</label>
+            </div>
+        </fieldset>
+        <small id="error-message" class="error-message" role="alert">Please select an option before submitting.</small>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const radioButtons = document.querySelectorAll('input[name="option"]');
+            const errorMessage = document.getElementById('error-message');
+
+            let isSelected = false;
+            let firstRadioButton = null;
+            radioButtons.forEach(button => {
+                if (!firstRadioButton) firstRadioButton = button;
+                if (button.checked) {
+                    isSelected = true;
+                }
+            });
+
+            if (!isSelected) {
+                errorMessage.style.display = 'block';
+                firstRadioButton.focus();
+
+                // Set aria-describedby dynamically
+                radioButtons.forEach(button => {
+                    button.setAttribute('aria-describedby', 'error-message');
+                });
+            } else {
+                errorMessage.style.display = 'none';
+                // Remove aria-describedby when there's no error
+                radioButtons.forEach(button => {
+                    button.removeAttribute('aria-describedby');
+                });
+                // Here you can add code to submit the form
+                console.log('Form submitted successfully');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Contact form</title>
+</head>
+
+<body>
+  <main aria-label="A form page to Contact Us">
+    <form>
+      <div class="container">
+        <h1>Contact Us</h1>
+        <div class="inputContainer">
+          <label for="fName">First Name<i class="fa-solid fa-asterisk"></i></label>
+          <input type="text" id="fName" name="fName" aria-required="true">
+          <small id="required-alert">This field is required</small>
+        </div>
+        <div class="inputContainer">
+          <label for="Lname">Last Name<i class="fa-solid fa-asterisk"></i></label>
+          <input type="text" id="Lname" name="Lname" aria-required="true">
+          <small id="required-alert">This field is required</small>
+        </div>
+        <div class="inputContainer">
+          <label for="email">Email Address<i class="fa-solid fa-asterisk"></i></label>
+          <input type="email" id="email" name="email" aria-required="true">
+          <small id="required-alert">Please enter a valid email address</small>
+        </div>
+        <fieldset class="radioContainer">
+          <legend>Query Type<i class="fa-solid fa-asterisk"></i></legend>
+          <div>
+            <input type="radio" id="generalInquiry" name="queryType" value="general " aria-required="true">
+            <label for="generalInquiry">General Inquiry</label>
+          </div>
+          <div>
+            <input type="radio" id="supportRequest" name="queryType" value="support">
+            <label for="supportRequest">Support Request</label>
+          </div>
+          <span class="sr-only" id="query-alert">Please select one of the query types below.</span>
+          <small>Please select a query type</small>
+        </fieldset>
+        <div class="inputContainer">
+          <label for="message">Message<i class="fa-solid fa-asterisk"></i></label>
+          <textarea name="message" id="message" aria-required="true"></textarea>
+          <small id="required-alert">This field is required</small>
+        </div>
+        <div class="inputContainer checkBoxContainer">
+          <input type="checkbox" id="consent" name="consent" aria-required="true">
+          <label for="consent">I consent to being contacted by the team<div><i class="fa-solid fa-asterisk"></i></div>
+            </label>
+          <small id="required-alert">To submit this form, please consent to being contacted</small>
+        </div>
+        <input class="submitBtn" type="submit" value="Submit">
+        <div id="confirm-alert" class="popUpMsg">
+          <h1><i class="fa-regular fa-circle-check"></i>Message Sent!</h1>
+          <span>Thanks for completing the form. We'll be in touch soon!</span>
+        </div>
+      </div>
+
+    </form>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>

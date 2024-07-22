@@ -1,0 +1,345 @@
+:root {
+    --color-bg: #e0f1e7;
+    --accentColor: #0c7d69;
+    --fontFamily: "Karla";
+    --inputBorderColor: rgb(179, 179, 179);
+    --inputFocusColor: #648c84;
+    --inputFontSize: 15px;
+    --inputFontWeight: 600;
+    --inputFontColor: hsl(187, 24%, 22%);
+    --inputBorderRadius: 6px;
+    --labelFontSize: 16px;
+    --submitBtnHoverColor: #063f36;
+    --errorColor: #d34950;
+    --popUpBGcolor: #2a4244;
+    --radioLabelColor: #000000c9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--fontFamily);
+}
+
+main {
+    width: 100%;
+    max-width: 590px;
+}
+
+.container {
+    background-color: white;
+    border-radius: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+}
+
+.container h1 {
+    margin-top: 27px;
+    font-size: 25px;
+}
+
+.container small {
+    color: var(--errorColor);
+    font-weight: var(--inputFontWeight);
+    font-size: 13px;
+    margin-top: 10px;
+    display: none;
+}
+
+.container .radioContainer span {
+    display: none;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputContainer,
+.radioContainer {
+    margin-top: 20px;
+}
+
+.inputContainer label,
+.radioContainer legend {
+    font-size: var(--labelFontSize);
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.inputContainer label i,
+.radioContainer legend i {
+    font-size: 7px;
+    color: var(--accentColor);
+    position: absolute;
+    margin-left: 10px;
+    top: 4px;
+}
+
+.inputContainer input[type="text"],
+.inputContainer input[type="email"],
+.inputContainer textarea {
+    font-family: var(--fontFamily);
+    font-size: var(--inputFontSize);
+    font-weight: var(--inputFontWeight);
+    color: var(--inputFontColor);
+    border: 1px solid var(--inputBorderColor);
+    border-radius: var(--inputBorderRadius);
+    padding-left: 10px;
+    padding-right: 10px;
+    outline-color: var(--inputFocusColor);
+    cursor: pointer;
+}
+
+.inputContainer input[type="text"]:hover,
+.inputContainer input[type="email"]:hover,
+.inputContainer textarea:hover {
+    border: 1px solid var(--inputFocusColor);
+}
+
+.inputContainer input[type="text"].error,
+.inputContainer input[type="email"].error,
+.inputContainer textarea.error {
+    border: 1px solid var(--errorColor);
+    outline-color: var(--errorColor);
+}
+
+.inputContainer input[type="text"].error:hover,
+.inputContainer input[type="email"].error:hover,
+.inputContainer textarea.error:hover {
+    border: 1px solid var(--errorColor);
+}
+
+.inputContainer textarea {
+    resize: none;
+    height: 85px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.inputContainer input[type="text"],
+.inputContainer input[type="email"],
+.radioContainer div {
+    height: 40px;
+}
+
+.inputContainer:nth-child(2) {
+    margin-right: 10px;
+}
+
+.inputContainer:nth-child(3) {
+    margin-left: 10px;
+}
+
+.container .radioContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: none;
+    column-gap: 20px;
+}
+
+.container .radioContainer div {
+    border-radius: var(--inputBorderRadius);
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: var(--inputBorderRadius);
+}
+
+
+.container .radioContainer div label {
+    width: 100%;
+    height: 100%;
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 1px solid var(--inputBorderColor);
+    cursor: pointer;
+    color: var(--radioLabelColor);
+}
+
+
+.container .radioContainer div input {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 20px;
+    accent-color: var(--accentColor);
+    cursor: pointer;
+}
+
+.container .radioContainer input:checked+label {
+    background-color: #e0f1e7;
+    border: 1px solid #0c7d69;
+}
+
+.container .checkBoxContainer {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+.container .checkBoxContainer label {
+    margin: 0;
+    cursor: pointer;
+    margin-left: 16px;
+    padding-right: 15px;
+}
+
+.container .checkBoxContainer input {
+    width: 16px;
+    accent-color: var(--accentColor);
+    cursor: pointer;
+}
+
+.container .checkBoxContainer small {
+    grid-column: 1/3;
+}
+
+.container .checkBoxContainer div {
+    display: inline;
+    position: relative;
+}
+
+.container .submitBtn {
+    height: 45px;
+    margin-bottom: 30px;
+    border-radius: var(--inputBorderRadius);
+    font-size: 16px;
+    font-family: var(--fontFamily);
+    font-weight: var(--inputFontWeight);
+    color: white;
+    background-color: var(--accentColor);
+    border: none;
+    cursor: pointer;
+}
+
+.container .submitBtn:hover {
+    background-color: var(--submitBtnHoverColor);
+}
+
+.container .popUpMsg {
+    color: white;
+    background-color: var(--popUpBGcolor);
+    border-radius: 12px;
+    padding: 20px;
+    position: absolute;
+    top: -100px;
+    opacity: 0;
+    margin-left: 14.5%;
+    margin-right: 14.5%;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.container .popUpMsg.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.container .popUpMsg h1 {
+    margin: 0;
+    font-size: 17px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.container .popUpMsg h1 i {
+    margin-right: 13px;
+}
+
+.container span {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.712);
+}
+
+/* Defining item placement in grid*/
+.container h1 {
+    grid-column: 1/3;
+}
+
+.container .inputContainer:nth-child(4),
+.container .inputContainer:nth-child(6) {
+    grid-column: 1/3;
+}
+
+.container .radioContainer {
+    grid-column: 1/3;
+}
+
+.container .checkBoxContainer {
+    grid-column: 1/3;
+}
+
+.container input:last-child {
+    grid-column: 1/3;
+}
+
+.container .submitBtn {
+    grid-column: 1/3;
+}
+
+@media (max-height: 840px) {
+    .container .popUpMsg {
+        top: 100px;
+    }
+}
+
+@media (max-width :455px) {
+    body {
+        height: auto;
+    }
+
+    main {
+        width: 90%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .container .inputContainer {
+        grid-column: 1/3;
+    }
+
+    .inputContainer:nth-child(2) {
+        margin-right: 0;
+    }
+
+    .inputContainer:nth-child(3) {
+        margin-left: 0;
+    }
+
+    .container .radioContainer {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .container .inputContainer textarea {
+        height: 170px;
+    }
+
+    .container .popUpMsg {
+        top: 300px;
+        left: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
