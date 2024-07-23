@@ -57,6 +57,7 @@ function checkRequiredFields() {
         });
         if (allFieldsValid) {
             showPopUp();
+            clearFields();
             submitBtn.setAttribute('aria-describedby', 'confirm-alert');
         }
     });
@@ -99,4 +100,16 @@ function showPopUp() {
     setTimeout(() => {
         confirmationMessage.classList.remove('show');
     }, 3000);
+}
+function clearFields() {
+    inputs.forEach(function (input) {
+        if (input.type === 'text'
+            || input.type === 'email'
+            || input.tagName === 'TEXTAREA'
+        ) {
+            input.value = '';
+        } else if (input.type === 'radio' || input.type === 'checkbox') {
+            input.checked = false;
+        }
+    });
 }
